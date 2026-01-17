@@ -1,0 +1,193 @@
+
+<style>
+  .search-btn{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem; /* top right bottom left */
+  }
+  .search-btn:hover{
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-input {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 0.9rem;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
+  <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse bg-body-tertiary" id="mainNavbar">
+    
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/listings">Explore</a>
+      
+    </div>
+
+    <div class="navbar-nav ms-auto">
+      <form class="d-flex" role="search">
+      <input class="form-control me-2 search-input" type="search" placeholder="Search destination" aria-label="Search"/>
+      <button class="btn search-btn " type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+    </div>
+
+    <div class="navbar-nav ms-auto">
+      <a class="nav-item nav-link" href="/listings/new">Airbnb your home</a>
+      <% if(!currUser){ %>
+        <a class="nav-item nav-link " href="/signup"><b>Signup</b> <a>
+        <a class="nav-item nav-link" href="/login"><b>Log in</b></a>
+      <% } %>
+      <% if(currUser){ %>
+        <a class="nav-item nav-link" href="/logout"><b>Log out</b></a>
+      <% } %>
+    </div>
+  </div>
+</nav>
+
+
+
+<style>
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-item {
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+
+        }
+
+        .filter-item:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .filter-item p {
+            font-size: 0.7rem;
+        }
+
+        .filter-link {
+            text-decoration: none;
+            color: inherit
+        }
+        .tax-info{
+            display: none;
+        }
+        .tax-toggle{
+            border: 1px solid black;
+            border-radius: 1rem;
+            height: 3rem;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            margin-left: 2rem;
+        }
+    </style>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top" style="top: 3.7rem;">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse bg-body-tertiary" id="navbarNavAltMarkup">
+    <div id="filters">
+        <a href="/listings?category=trending" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </div>
+        </a>
+        <a href="/listings?category=rooms" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=iconic cities" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=mountians" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Mountians</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=castles" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=amazing pools" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing Pools</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=camping" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <p>Camping</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=farms" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-cow"></i></i></div>
+                <p>Farms</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=arctic" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-snowflake"></i></i></div>
+                <p>Arctic</p>
+            </div>
+        </a>
+        <a href="/listings?category=rooms" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-sailboat"></i></div>
+                <p>Boats</p>
+            </div>
+        </a>
+
+        <a href="/listings?category=iconic cities" class="filter-link">
+            <div class="filter-item">
+                <div><i class="fa-solid fa-igloo"></i></div>
+                <p>Domes</p>
+            </div>
+        </a>
+
+        <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault"> Display total after taxes</label>
+                </div>
+        </div>
+       
+    </div>
+    </div>
+    </nav>
