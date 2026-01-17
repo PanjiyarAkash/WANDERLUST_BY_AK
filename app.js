@@ -79,10 +79,7 @@ const sessionOptions = {
 };
 
 
-// //root routenode 
-// app.get("/", (req,res)=>{
-//     res.send("root is working.");
-// });
+
 
 
 app.use(session(sessionOptions));
@@ -122,6 +119,10 @@ app.use("/listings/:id/reviews", reviewRouter);
 //user
 app.use("/",userRouter);
 
+//root routenode 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 app.all(/(.*)/,(req,res,next)=>{
     next(new ExpressError(404,"Page not found!"));
