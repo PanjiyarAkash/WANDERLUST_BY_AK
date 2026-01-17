@@ -19,7 +19,7 @@
         
         <div class="mb-3">
             <label for="image" class="form-label">Upload Listing Image</label>
-            <input name="listing[image]" type="file" class="form-control" required/>
+            <input name="listing[image]" type="file" class="form-control" id="uploadImage" required/>
         </div>
         
         <div class="row">
@@ -62,7 +62,14 @@
     </form>
     </div>
     </div>
-
+<script>
+    document.getElementById("uploadImage").addEventListener("change", function() {
+        if (this.files[0].size > 512000) { // 500kb = 512000 bytes
+            alert("File is too big! Please select an image under 500 kb.");
+            this.value = ""; // Clears the file input
+        }
+    });
+</script>
 
 
     

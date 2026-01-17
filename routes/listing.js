@@ -16,8 +16,11 @@ const listingController = require("../controllers/listings.js");
 
 const multer  = require('multer')
 const {storage} = require("../cloudConfig.js");
-const upload = multer({storage });
-
+// const upload = multer({storage });
+const upload = multer({ 
+    storage: storage,
+    limits: { fileSize: 1 * 500 * 1024 } // 500 kb (500 * 1024 bytes)
+});
 
 
 
